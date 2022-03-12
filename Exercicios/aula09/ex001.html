@@ -11,16 +11,25 @@
             color: white;
             font-family: Arial, Helvetica, sans-serif;
         }
+        h1{
+            color: yellow;
+        }
+        p{
+            color: rgb(247, 170, 250);
+        }
     </style>
 </head>
 <body>
     <h1>Iniciando estudos com DOM</h1>
     <p>Aqui vai o resultado</p>
     <p>aprendendo a usar <strong>DOM</strong> em JavaEscript. </p>
-    <div>Clique em mim</div>
-    
-    <script>
+    <div id="msg">Clique em mim</div>
 
+    <script>
+        p1 = document.getElementsByTagName('p')[0]
+        document.write(p1.innerText)
+        d = document.querySelector('div#msg')
+        d.style.background = 'black'      
     </script>
 
 </body>

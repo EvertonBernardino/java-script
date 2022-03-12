@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somando numero</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10pt;
+        text-align: center;
+        color: navy;
+        
+    }
+    main{
+        background-color: grey;
+        width: 50vh;
+        margin: auto;
+        padding: 20px;
+        height: 30vh;
+        border-radius: 10px;
+    }
+    input{
+        width: 60px;
+        margin-top: 30px;
+    }
+    input#txtn1{
+        width: 30px;
+    }
+    input#txtn2{
+        width: 30px;
+    }
+    div{
+        color: rgb(110, 4, 4);
+        padding: 20px;
+    }
+</style>
+<body>
+    <main>
+        <h1>Somando Valores</h1>
+        <input type="number" name="txtn1" id="txtn1"> +
+        <input type="number" name="txtn2" id="txtn2">
+        <input type="button" value="Somar" onclick="somar()">
+        <div id="res"></div>
+    </main>
+    <script>
+        function somar(){
+            var tn1 = document.querySelector('input#txtn1')
+
+            var tn2 = document.querySelector('input#txtn2')
+
+            var res = document.querySelector('div#res')
+
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)
+            var s = n1 + n2 
+            res.innerHTML = `A soma de ${n1} e ${n2} é igual a <strong>${s}</strong>`
+        }
+    </script>
+
+    
+</body>
+</html>
