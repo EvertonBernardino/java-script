@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
     <style>
+        @font-face {
+        font-family: 'Digital';
+        src: url(fonte/DS-DIGI.TTF) format('opentype');
+        }
         *{
             margin: 0px;
             padding: 0px;
@@ -17,12 +21,21 @@
             padding: 30px;
         }
         #visor{
+            font-family: 'Digital', Arial, sans-serif;
             height: 60px;
             width: 190px;
             margin-bottom: 10px;
+            padding: 2px;
             box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.281);
             background-color: rgb(115, 179, 6);
             color: rgb(0, 70, 6);
+        }
+        #res{
+            margin-bottom: 5px;
+            padding: 2px;
+            background-color: rgb(50, 102, 69);
+            color: white;
+            width: 100px;
         }
         div#calculadora{
             background-color: aquamarine;
@@ -41,13 +54,15 @@
             margin: 2px;
             width: 40px;
             height: 40px;
-            
+            background-color: rgb(59, 105, 88);
+            color: rgb(255, 255, 255);
         }
     </style>
 </head>
 <body>
     <div id="calculadora">
-        <input type="text" name="visor" id="visor">
+        <input type="button" value="RESET" id="res">
+        <div id="visor"></div>
         <div id="botoes" >
             <input type="button" value="1" id="1">
             <input type="button" value="2" id="2">
@@ -65,14 +80,118 @@
             <input type="button" value="9" id="9">
             <input type="button" value="-" id="menos">
 
-            <input type="button" value="." id="ponto">
+            <input type="button" value="," id="virgula">
             <input type="button" value="0" id="0">            
             <input type="button" value="=" id="igual"> 
             <input type="button" value="+" id="mais">           
         </div>
     </div>
     <script>
+        //chamada dos botões numerico        
+        n1 = document.getElementById("1")
+        n2 = document.getElementById("2")
+        n3 = document.getElementById("3")
+        n4 = document.getElementById("4")
+        n5 = document.getElementById("5")
+        n6 = document.getElementById("6")
+        n7 = document.getElementById("7")
+        n8 = document.getElementById("8")
+        n9 = document.getElementById("9")
+        n0 = document.getElementById("0")
 
+        //chamada dos botões de matematica
+        mais = document.getElementById("mais")
+        menos = document.getElementById("menos")
+        veses = document.getElementById("veses")
+        dividir = document.getElementById("dividir")
+
+        //demais botões e visor
+        igual = document.getElementById("igual")
+        virgula = document.getElementById("virgula")
+        res = document.getElementById("res")
+        visor = document.getElementById("visor")
+
+        //eventos de click
+        n1.addEventListener('click', clicar1)
+        n2.addEventListener('click', clicar2)
+        n3.addEventListener('click', clicar3)
+        n4.addEventListener('click', clicar4)
+        n5.addEventListener('click', clicar5)
+        n6.addEventListener('click', clicar6)
+        n7.addEventListener('click', clicar7)
+        n8.addEventListener('click', clicar8)
+        n9.addEventListener('click', clicar9)
+        n0.addEventListener('click', clicar0)
+
+        mais.addEventListener('click', clicarmais)
+        menos.addEventListener('click', clicarmenos)
+        veses.addEventListener('click', clicarveses)
+        dividir.addEventListener('click', clicardividir)
+        virgula.addEventListener('click', clicarvirgula)
+        igual.addEventListener('click', clicarigual)
+        res.addEventListener('click', clicarres)
+
+        function clicar1(){
+            visor.innerText = '1'
+            return 1
+        }
+        function clicar2(){
+            visor.innerText = '2'
+            return 2
+        }
+        function clicar3(){
+            visor.innerText = '3'
+            return 3
+        }
+        function clicar4(){
+            visor.innerText = '4'
+            return 4
+        }
+        function clicar5(){
+            visor.innerText = '5'
+            return 5
+        }
+        function clicar6(){
+            visor.innerText = '6'
+            return 6
+        }
+        function clicar7(){
+            visor.innerText = '7'
+            return 7
+        }
+        function clicar8(){
+            visor.innerText = '8'
+            return 8
+        }
+        function clicar9(){
+            visor.innerText = '9'
+            return 9
+        }
+        function clicar0(){
+            visor.innerText = '0'
+            return 0
+        }
+        function clicarmais(){
+            visor.innerText = '+'
+        }
+        function clicarmenos(){
+            visor.innerText = '-'
+        }
+        function clicarveses(){
+            visor.innerText = '*'
+        }
+        function clicardividir(){
+            visor.innerText = '/'
+        }
+        function clicarvirgula(){
+            visor.innerText = ','
+        }
+        function clicarigual(){
+            visor.innerText = '='
+        }
+        function clicarres(){
+            visor.innerText = ''
+        }
     </script>
 </body>
 </html>
