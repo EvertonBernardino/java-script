@@ -50,7 +50,7 @@
             margin: auto;
             
         }
-        div#botoes > input{
+        div#botoes > button{
             margin: 2px;
             width: 40px;
             height: 40px;
@@ -64,140 +64,41 @@
         <input type="button" value="RESET" id="res">
         <div id="visor"></div>
         <div id="botoes" >
-            <input type="button" value="1" id="1">
-            <input type="button" value="2" id="2">
-            <input type="button" value="3" id="3">
-            <input type="button" value="/" id="dividir">
+            <button id="tecla1"> 1</button> 
+            <button id="tecla2">2</button>
+            <button id="tecla3">3</button>
+            <button id="operadorividir">/</button>
             
                 
-            <input type="button" value="4" id="4">
-            <input type="button" value="5" id="5">
-            <input type="button" value="6" id="6">
-            <input type="button" value="*" id="veses">
+            <button id="tecla4">4</button>
+            <button id="tecla5">5</button>
+            <button id="tecla6">6</button>
+            <button id="operadorveses">*</button>
 
-            <input type="button" value="7" id="7">
-            <input type="button" value="8" id="8">
-            <input type="button" value="9" id="9">
-            <input type="button" value="-" id="menos">
+            <button id="tecla7">7</button>
+            <button id="tecla8">8</button>
+            <button id="tecla9">9</button>
+            <button id="operadormenos">-</button>
 
-            <input type="button" value="," id="virgula">
-            <input type="button" value="0" id="0">            
-            <input type="button" value="=" id="igual"> 
-            <input type="button" value="+" id="mais">
+            <button id="teclavirgula">,</button>
+            <button id="tecla0">0</button>           
+            <button id="operadorigual">=</button> 
+            <button id="operadormais">+</button>
                      
         </div>
-    </div>
-     <button>
-
-
-        ssss
-     </button> 
+    </div> 
     <script>
-        //chamada dos botões numerico        
-        n1 = document.getElementById("1")
-        n2 = document.getElementById("2")
-        n3 = document.getElementById("3")
-        n4 = document.getElementById("4")
-        n5 = document.getElementById("5")
-        n6 = document.getElementById("6")
-        n7 = document.getElementById("7")
-        n8 = document.getElementById("8")
-        n9 = document.getElementById("9")
-        n0 = document.getElementById("0")
+           const visor = document.getElementById("visor")
+           const numeros = document.querySelectorAll('[id*=tecla]')
+           const operador = document.querySelectorAll('[id*=operador]')
 
-        //chamada dos botões de matematica
-        mais = document.getElementById("mais")
-        menos = document.getElementById("menos")
-        veses = document.getElementById("veses")
-        dividir = document.getElementById("dividir")
+           const atualizarVisor = (text) =>{visor.textContent += text}
 
-        //demais botões e visor
-        igual = document.getElementById("igual")
-        virgula = document.getElementById("virgula")
-        res = document.getElementById("res")
-        visor = document.getElementById("visor")
+           const inserirNumero = (evento) => atualizarVisor(evento.target.textContent)
 
-        //eventos de click
-        n1.addEventListener('click', clicar1)
-        n2.addEventListener('click', clicar2)
-        n3.addEventListener('click', clicar3)
-        n4.addEventListener('click', clicar4)
-        n5.addEventListener('click', clicar5)
-        n6.addEventListener('click', clicar6)
-        n7.addEventListener('click', clicar7)
-        n8.addEventListener('click', clicar8)
-        n9.addEventListener('click', clicar9)
-        n0.addEventListener('click', clicar0)
+           numeros.forEach( numero => numero.addEventListener('click',inserirNumero))
 
-        mais.addEventListener('click', clicarmais)
-        menos.addEventListener('click', clicarmenos)
-        veses.addEventListener('click', clicarveses)
-        dividir.addEventListener('click', clicardividir)
-        virgula.addEventListener('click', clicarvirgula)
-        igual.addEventListener('click', clicarigual)
-        res.addEventListener('click', clicarres)
-
-        function clicar1(){
-            visor.innerText = '1'
-            return 1
-        }
-        function clicar2(){
-            visor.innerText = '2'
-            return 2
-        }
-        function clicar3(){
-            visor.innerText = '3'
-            return 3
-        }
-        function clicar4(){
-            visor.innerText = '4'
-            return 4
-        }
-        function clicar5(){
-            visor.innerText = '5'
-            return 5
-        }
-        function clicar6(){
-            visor.innerText = '6'
-            return 6
-        }
-        function clicar7(){
-            visor.innerText = '7'
-            return 7
-        }
-        function clicar8(){
-            visor.innerText = '8'
-            return 8
-        }
-        function clicar9(){
-            visor.innerText = '9'
-            return 9
-        }
-        function clicar0(){
-            visor.innerText = '0'
-            return 0
-        }
-        function clicarmais(){
-            visor.innerText = '+'
-        }
-        function clicarmenos(){
-            visor.innerText = '-'
-        }
-        function clicarveses(){
-            visor.innerText = '*'
-        }
-        function clicardividir(){
-            visor.innerText = '/'
-        }
-        function clicarvirgula(){
-            visor.innerText = ','
-        }
-        function clicarigual(){
-            visor.innerText = '='
-        }
-        function clicarres(){
-            visor.innerText = ''
-        }
+           console.log(numeros)
     </script>
 </body>
 </html>
