@@ -1,4 +1,4 @@
-idade = 22
+idade = 10
 if (idade<16){
     console.log('Não vota')
 }else if(idade >=16 || idae > 65){
