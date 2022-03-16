@@ -78,27 +78,67 @@
             <button id="tecla7">7</button>
             <button id="tecla8">8</button>
             <button id="tecla9">9</button>
-            <button id="operadormenos">-</button>
+            <button id="operador-menos">-</button>
 
             <button id="teclavirgula">,</button>
             <button id="tecla0">0</button>           
-            <button id="operadorigual">=</button> 
+            <button id="igual">=</button> 
             <button id="operadormais">+</button>
+
                      
         </div>
     </div> 
     <script>
            const visor = document.getElementById("visor")
            const numeros = document.querySelectorAll('[id*=tecla]')
-           const operador = document.querySelectorAll('[id*=operador]')
+           const operadores = document.querySelectorAll('[id*=operador]')
 
-           const atualizarVisor = (text) =>{visor.textContent += text}
+           let novoNumero = true
+           let operador
+           let numeroAnterior
+
+           const operacaoPendente = () => operador != undefined
+
+           const ativarIgual = ()=>{
+               calcular()
+               operador = undefined
+           }
+
+           const calcular = () =>{
+               if(operacaoPendente()){
+                   const numeroAtual = parseFloat (visor.textContent)
+                   novoNumero = true
+                   const resultado = eval (`${numeroAnterior}${operador}${numeroAtual}`);
+                   atualizarVisor(resultado);
+               }
+           }
+         
+
+           const atualizarVisor = (text) =>{
+               if (novoNumero){
+                    visor.textContent = text
+                    novoNumero = false
+                }else{
+                    visor.textContent += text
+                }
+            }
+           
 
            const inserirNumero = (evento) => atualizarVisor(evento.target.textContent)
 
            numeros.forEach( numero => numero.addEventListener('click',inserirNumero))
 
-           console.log(numeros)
+           const selecionarOperador = (evento) =>  {
+            if(!novoNumero) {
+                calcular()
+                novoNumero = true
+                operador = evento.target.textContent
+                numeroAnterior = parseFloat (visor.textContent)
+           }
+        }
+           operadores.forEach( operador => operador.addEventListener('click',selecionarOperador))
+           
+           document.getElementById("igual").addEventListener('click', ativarIgual)
     </script>
 </body>
 </html>
