@@ -1,2 +1,2 @@
 # java-script
- Curso de JavaScript (não iniciado)
+ Curso de JavaScript
