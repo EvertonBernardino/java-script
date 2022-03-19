@@ -13,15 +13,25 @@
         *{
             margin: 0px;
             padding: 0px;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 20pt;
+            
         }
+        
         body{
-            background-color: darkgrey;
-            padding: 30px;
+            background-color: rgb(56, 56, 56);
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
+        header{
+            background-color: rgb(37, 37, 37);
+            color: white;
+            padding: 2px;
+            font-size: 14pt;
+            text-align: center;
+            margin-bottom: 20px;
         }
         #visor{
             font-family: 'Digital', Arial, sans-serif;
+            font-size: 20pt;
             height: 60px;
             width: 190px;
             margin-bottom: 10px;
@@ -29,17 +39,12 @@
             box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.281);
             background-color: rgb(115, 179, 6);
             color: rgb(0, 70, 6);
-        }
-        #res{
-            margin-bottom: 5px;
-            padding: 2px;
-            background-color: rgb(50, 102, 69);
-            color: white;
-            width: 100px;
+            
         }
         div#calculadora{
             background-color: aquamarine;
             margin: auto;
+            margin-top: 80px;
             padding: 20px;
             width: 205px;
             border-radius: 20px;
@@ -48,6 +53,7 @@
         div#botoes{
             width: 150px;
             display: inline-block;
+            
         }
         div#op{
             width: 45px;
@@ -60,6 +66,7 @@
             height: 40px;
             background-color: rgb(59, 105, 88);
             color: rgb(255, 255, 255);
+            font-size: 20pt;
         }
         div#op > button{
             margin: 2px;
@@ -67,12 +74,21 @@
             height: 40px;
             background-color: rgb(59, 105, 88);
             color: rgb(255, 255, 255);
+            font-size: 20pt;
         }
-        
-        
+        footer#rodape{
+            background-color: rgb(37, 37, 37);
+            color: white;
+            padding: 2px;
+            margin-top: 19.5vh;
+            font-size: 16pt;
+            text-align: center;
+        }
+                
     </style>
 </head>
 <body>
+    <header><p>Minha primeira calculador desenvolvida em JS, HTML, CSS</p></header>
     <div id="calculadora">
         <div id="visor"></div>
         
@@ -110,6 +126,9 @@
         
         </div>
     </div> 
+    <footer id="rodape">
+        <p>Desenvolvido por Everton Bernardino</p>
+    </footer>
     <script>
            const visor = document.getElementById("visor")
            const numeros = document.querySelectorAll('[id*=tecla]')
@@ -190,23 +209,25 @@
            document.getElementById('virgula').addEventListener('click', incerirVirgula)
 
            const mapaTeclado = {
-               '0' : 'tecla0',
-               '1' : 'tecla1',
-               '2' : 'tecla2',
-               '3' : 'tecla3',
-               '4' : 'tecla4',
-               '5' : 'tecla5',
-               '6' : 'tecla6',
-               '7' : 'tecla7',
-               '8' : 'tecla8',
-               '9' : 'tecla9',
-               '/' : 'operadorividir',
-               '*' : 'operadorveses',
-               '-' : 'operadormenos',
-               '+' : 'operadormais',
-               '=' : 'igual',
-               'Enter' : 'igual',
-               'backspace' : 'backspace',
+               '0'         : 'tecla0',
+               '1'         : 'tecla1',
+               '2'         : 'tecla2',
+               '3'         : 'tecla3',
+               '4'         : 'tecla4',
+               '5'         : 'tecla5',
+               '6'         : 'tecla6',
+               '7'         : 'tecla7',
+               '8'         : 'tecla8',
+               '9'         : 'tecla9',
+               '/'         : 'operadorividir',
+               '*'         : 'operadorveses',
+               '-'         : 'operadormenos',
+               '+'         : 'operadormais',
+               '='         : 'igual',
+               'Enter'     : 'igual',
+               'Backspace' : 'backspace',
+               ','         : 'virgula',
+               'c'         : 'limparCalculo'
 
            }
 
