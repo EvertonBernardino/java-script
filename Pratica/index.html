@@ -41,14 +41,18 @@
             background-color: aquamarine;
             margin: auto;
             padding: 20px;
-            width: 200px;
+            width: 205px;
             border-radius: 20px;
             box-shadow: 5px 5px 1px rgba(0, 0, 0, 0.479);
         }
         div#botoes{
-            width: 200px;
-            margin: auto;
-            
+            width: 150px;
+            display: inline-block;
+        }
+        div#op{
+            width: 45px;
+            padding: 0px;
+            display: inline-block;
         }
         div#botoes > button{
             margin: 2px;
@@ -57,35 +61,53 @@
             background-color: rgb(59, 105, 88);
             color: rgb(255, 255, 255);
         }
+        div#op > button{
+            margin: 2px;
+            width: 40px;
+            height: 40px;
+            background-color: rgb(59, 105, 88);
+            color: rgb(255, 255, 255);
+        }
+        
+        
     </style>
 </head>
 <body>
     <div id="calculadora">
-        <input type="button" value="RESET" id="res">
         <div id="visor"></div>
+        
         <div id="botoes" >
+            <button id="limparVisor">CE</button>
+            <button id="limparCalculo" >C</button> 
+            <button id="backspace"><<</button>
+                     
+
             <button id="tecla1"> 1</button> 
             <button id="tecla2">2</button>
-            <button id="tecla3">3</button>
-            <button id="operadorividir">/</button>
-            
-                
+            <button id="tecla3">3</button>            
+
             <button id="tecla4">4</button>
             <button id="tecla5">5</button>
             <button id="tecla6">6</button>
-            <button id="operadorveses">*</button>
-
+            
             <button id="tecla7">7</button>
             <button id="tecla8">8</button>
             <button id="tecla9">9</button>
-            <button id="operador-menos">-</button>
 
-            <button id="teclavirgula">,</button>
-            <button id="tecla0">0</button>           
-            <button id="igual">=</button> 
-            <button id="operadormais">+</button>
-
-                     
+            
+            <button id="tecla0">0</button>
+            <button id="tecla00">00</button> 
+            <button id="virgula">,</button>
+                      
+               
+        </div>
+        <div id="op">
+        <button id="operadorividir">/</button>
+        <button id="operadorveses">*</button>
+        <button id="operadormenos">-</button>
+        <button id="operadormais">+</button>
+        <button id="igual">=</button>
+        
         </div>
     </div> 
     <script>
@@ -106,7 +128,7 @@
 
            const calcular = () =>{
                if(operacaoPendente()){
-                   const numeroAtual = parseFloat (visor.textContent)
+                   const numeroAtual = parseFloat (visor.textContent.replace(',','.'))
                    novoNumero = true
                    const resultado = eval (`${numeroAnterior}${operador}${numeroAtual}`);
                    atualizarVisor(resultado);
@@ -116,7 +138,7 @@
 
            const atualizarVisor = (text) =>{
                if (novoNumero){
-                    visor.textContent = text
+                    visor.textContent = text.toLocaleString('BR')
                     novoNumero = false
                 }else{
                     visor.textContent += text
@@ -133,12 +155,68 @@
                 calcular()
                 novoNumero = true
                 operador = evento.target.textContent
-                numeroAnterior = parseFloat (visor.textContent)
+                numeroAnterior = parseFloat (visor.textContent.replace(',','.'))
            }
         }
            operadores.forEach( operador => operador.addEventListener('click',selecionarOperador))
            
            document.getElementById("igual").addEventListener('click', ativarIgual)
+
+            const limparVisor = () => visor.textContent = ""
+           document.getElementById("limparVisor").addEventListener('click',limparVisor)
+
+           const limparCalculo = () => {
+               limparVisor();
+               operador = undefined
+                novoNumero = true
+                numeroAnterior = undefined
+           }
+           document.getElementById("limparCalculo").addEventListener('click', limparCalculo)
+
+           const removerUltimoNumero = () => visor.textContent = visor.textContent.slice(0, -1)
+           document.getElementById('backspace').addEventListener('click', removerUltimoNumero)
+
+           const existeVirgula = () => visor.textContent.indexOf(',') != -1
+           const existeValor = () => visor.textContent.length > 0
+           const incerirVirgula = () =>{
+               if (!existeVirgula()){
+                   if(existeValor){
+                       atualizarVisor(',')
+                   }else{
+                       atualizarVisor('0,')
+                   }
+               }
+           }
+           document.getElementById('virgula').addEventListener('click', incerirVirgula)
+
+           const mapaTeclado = {
+               '0' : 'tecla0',
+               '1' : 'tecla1',
+               '2' : 'tecla2',
+               '3' : 'tecla3',
+               '4' : 'tecla4',
+               '5' : 'tecla5',
+               '6' : 'tecla6',
+               '7' : 'tecla7',
+               '8' : 'tecla8',
+               '9' : 'tecla9',
+               '/' : 'operadorividir',
+               '*' : 'operadorveses',
+               '-' : 'operadormenos',
+               '+' : 'operadormais',
+               '=' : 'igual',
+               'Enter' : 'igual',
+               'backspace' : 'backspace',
+
+           }
+
+           const maparTeclado = (evento) =>{
+               const tecla = evento.key
+
+               const teclaPermitida = () => Object.keys(mapaTeclado).indexOf(tecla) != -1
+               if (teclaPermitida()) document.getElementById(mapaTeclado[tecla]).click()
+           }
+           document.addEventListener('keydown', maparTeclado)
     </script>
 </body>
 </html>
