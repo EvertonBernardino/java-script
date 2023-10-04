@@ -110,6 +110,15 @@ var xicara = {
 }
 ```
 ### Manipulando objetos
-As propriedades de ojbetos podem ser atribuídas à variáveis,
-facilitando a manipulação do objeto. Chamamos isso de
-desestruturação.
+As propriedades de ojbetos podem ser atribuídas à variáveis, facilitando a manipulação do objeto. Chamamos isso de desestruturação.
+
+Ex.: 
+```
+var xicara = {cor: ‘azul’, tamanho: ‘p’, funcao: tomarCafe()}
+```
+Ex. de como acessar o objeto:
+```
+var cor = xicara.cor;
+var tamanho = xicara.tamanho;
+var funcao = tomarCafe();
+```
