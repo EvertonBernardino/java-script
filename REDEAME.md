@@ -10,7 +10,10 @@ Ex. `const variavel = 5;` tipo Number<br>
 Ex. `let variavel = false;` tipo booleano<br>
 
 `typeoff()` é um parametro para mostrar o tipo de variavel<br>
-Ex.: `console.log(typeof(variavel))`
+Ex.: 
+```
+console.log(typeof(variavel))
+```
 
 Existem 3 modos de declarar as variáveis em JavaScript:
 
@@ -26,7 +29,10 @@ obrigatório e não pode ser alterado.
 ## Sinal de Igual
 
 O sinal de igualdade “=“ em JavaScript, significa atribuição.<br>
-Ex: `var nome = "meunome"` <br>
+Ex: 
+```
+var nome = "meunome"
+```
 como ler: variável nome recebe o valor meunome;
 
 Para fazermos uma comparação de valores em JavaScript usamos
@@ -65,11 +71,17 @@ como ler: “0” tem o valor e o tipo idêntico a 0? Nesse caso retorna false
 ## Vetores e Objetos
 Arrays são um tipo de lista, ou matriz de variáveis, onde cada variável possui um índice. Os valores podem ser de vários tipos.
 
-Ex.: `let array = [‘string’, 1, true]`
+Ex.:
+```
+let array = [‘string’, 1, true]
+```
 
 O array deve ser declarado entre colchetes “[]”, e podem guardar qualquer valor dentro de seus índices: inclusive outros arrays.
 
-Ex.: `let array = ['string', 1, true, false, [‘array1], [‘array2’]]`
+Ex.:
+```
+let array = ['string', 1, true, false, [‘array1], [‘array2’]]
+```
 
 ### Manipulando Arrays
 Ao ser declarado, o Array traz consigo uma série de métodos para
@@ -83,3 +95,21 @@ manipulá-lo.
 * `indexOf()` – retorna o índice de um valor;
 * `splice()` – remove ou substitui um item pelo índice;
 * `slice()` – retorna uma parte de um array existente;
+
+### O que são objetos?
+Dados que possuem propriedades e valores que definem suas características. Deve ser declarado entre chaves “{}”.
+
+Ex.: imagine uma xícara azul. Ela tem cor, pode ter vários
+tamanhos e funções(quero cafééé). Pode ser declarada assim:<br>
+
+```
+var xicara = {
+    cor: ‘azul’,
+    tamanho: ‘p’,
+    funcao: tomarCafe()
+}
+```
+### Manipulando objetos
+As propriedades de ojbetos podem ser atribuídas à variáveis,
+facilitando a manipulação do objeto. Chamamos isso de
+desestruturação.
