@@ -59,8 +59,8 @@ como ler: “0” tem o valor e o tipo idêntico a 0? Nesse caso retorna false
 
 * `>` maior que;<br>
 * `<` menor que;<br>
-* `>`= maior ou igual a;<br>
-* `<`= menor ou igual a;<br>
+* `>=` maior ou igual a;<br>
+* `<=` menor ou igual a;<br>
 
 ### São tipos de operadores que consultam valores lógicos:
 
@@ -121,4 +121,221 @@ Ex. de como acessar o objeto:
 var cor = xicara.cor;
 var tamanho = xicara.tamanho;
 var funcao = tomarCafe();
+```
+## Estruturas condicionais
+São instruções para realizar determinadas tarefas a partir de uma condição, seja de decisão ou repetição;
+
+Ex.: Um jogo precisa mudar o placar toda vez que um jogador
+marca pontuação;
+
+### Estruturas de decisão
+Podemos usar as palavras reservadas “if” para estabelecer uma
+condição:
+Ex.: 
+```
+var jogador1 = 0;
+var jogador2 = 0;
+
+if (jogador1 > 0) {
+    console.log(‘jogador1 marcou ponto’);
+}
+```
+como ler: se o jogador1 tiver valor maior que 0
+ele marcou ponto.
+
+No caso de a condição não ser atendida podemos usar o “else” :
+
+Ex.: 
+```
+var jogador1 = 1;
+var jogador2 = 0;
+
+if (jogador1 > 0) {
+    console.log(‘jogador1 marcou ponto’);
+} else {
+    console.log(‘ninguem marcou ponto’);
+}
+```
+
+Caso haja mais de uma condição usamos o “else if“.
+
+Ex.: 
+```
+var jogador1 = 1;
+var jogador2 = 0;
+
+if (jogador1 > 0) {
+    console.log(‘jogador1 marcou ponto’);
+} else if (jogador2 > 0) {
+    console.log(‘jogador2 marcou ponto’);
+} else {
+    console.log(‘ninguém marcou ponto);
+}
+```
+
+Podemos também usar o “if” dentro de um outro “if”, chamamos isso de aninhamento de if’s ou ninho de if’s.
+Ex.: 
+```
+if (jogador1 = -1) {
+    if (jogador1 > 0) {
+        console.log(‘jogador 1 marcou ponto’);
+    } else {
+        console.log(‘ninguém marcou ponto’);
+    }
+} else {
+    console.log(‘jogador inválido’);
+}
+```
+
+Podemos também fazer uma verificação em uma única linha
+usando o “if” ternário:
+
+Ex.: 
+
+[condição] ? [instrução1] : [instrução2];
+
+jogador1 > 0 ? console.log(‘marcou ponto’) : console.log(‘não
+marcou ponto”);
+
+// lembre de usar a interrogação “?” e dois pontos “:”
+
+```
+var jogador1 = 0;
+var jogador2 = 0;
+var placar; 
+
+jogador1 != -1 && jogador2 != -1 ? console.log("Jogadores validos") : console.log("Jogadores invalido");
+```
+O “switch/case” funciona como uma estrutura condicional também;
+
+Ex.:
+```
+switch (${expressao}) {
+    case 1:
+        ${instrucao};
+        break;
+    case 2:
+        ${instrução};
+        break;
+    default:
+        ${instrução};
+}
+
+```
+### Laços de repetição
+São estruturas condicionais que repetem uma instrução até atingir determinada condição:
+
+* For;
+* For/in;
+* For/of;
+* While;
+* Do/while;
+
+#### Laços de repetição For
+for ([expressaoInicial]; [condicao]; [incremento]) {
+declaracao }
+
+Ex.: 
+```
+var array = [‘valor1’, ‘valor2’, ‘valor3’, ‘valor4’]
+
+for (let i = 0; i < array.length; i++) {
+    console.log(i);
+}
+```
+
+for ([indice] in [objeto ou array]) {declaracao }
+
+Ex.:
+```
+var array = [‘valor1’, ‘valor2’, ‘valor3’, ‘valor4’]
+
+for (i in array) {
+    console.log(i);
+}
+```
+
+for ([indice] of [array]) {declaracao}
+
+Ex.:
+```
+var array = [‘valor1’, ‘valor2’, ‘valor3’, ‘valor4’]
+
+for (i of array) {
+    console.log(i);
+}
+```
+#### Laços de repetição While
+
+Ex.: 
+```
+var a = 0;
+while (a < 10) {
+    a++;
+    console.log(a);
+}
+```
+// como ler: enquanto a variável a for menor que 10 ela
+vai receber mais um e imprimir no console.
+
+#### Laços de repetição Do/while
+Ex.: 
+```
+var a = 0;
+do {
+    a++;
+    console.log(a);
+} while (a < 10)
+```
+// como ler: a variável a vai receber mais um e imprimir
+no console até que seu valor chegue a 10
+
+## Funções
+São blocos de comandos e instruções para a execução de determinadas tarefas:
+
+() – indica que é um objeto do tipo function;
+{} – indica que é um bloco de instrução;
+
+Ex.: 
+```
+function nomeDaFuncao() {
+    ${instrucao};
+}
+nomeDaFuncao();
+```
+### Funções com parâmetros
+As funções podem receber em sua declaração, parâmetros, que servem como variáveis, onde sua atribuição pode ser feita durante a chamada da função:
+
+Ex.: 
+```
+function nomeDaFuncao(parametro) {
+    ${instrucao};
+}
+nomeDaFuncao(valorDoParametro);
+```
+### Expressões de Funções
+São funções atribuídas à expressões. A nomeação das funções por expressão é opcional:
+```
+Ex. 1: 
+var funcao = function nomeDaFuncao() {
+    ${instrucao};
+}
+```
+Ex. 2: 
+```
+var funcao = function() {
+
+    ${instrucao};
+};
+```
+
+### Arrow Function
+São funções de expressão de sintaxe curta. Arrow functions sempre serão anônimas, e portanto não podem ser nomeadas.
+deve ser declarada com parênteses "()", seguido de "=>" e depois chaves "{}"
+
+Ex.
+``` 
+var funcao = () => {
+    ${instrucao};
+}
 ```
