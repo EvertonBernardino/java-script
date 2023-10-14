@@ -1,5 +1,7 @@
 # Informações Básica Sobre JavaScript
 
+Este repositório contém todas as informações que eu aprendi sobre JavaScript, a linguagem de programação mais usada na web. Eu criei este material como uma forma de revisar e reforçar os meus conhecimentos, e também de compartilhar com outras pessoas que possam se interessar pelo assunto. Aqui você vai encontrar desde os conceitos básicos até os mais avançados do JavaScript, com exemplos, exercícios e dicas práticas. Este é um recurso valioso para quem quer aprender ou aprimorar as suas habilidades em JavaScript. Sinta-se à vontade para consultar este repositório sempre que necessário.
+
 ## Variaveis e Tipagem
 
 Variável é um espaço reservado pelo sistema para guardar um valor do tipo: Booleano, String, Number, Null, Underfined, Arrey, Object ou Function.
